@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
+/*
 void main() {
   runApp(SecondPage());
-}
+}*/
 
 class SecondPage extends StatelessWidget {
   @override
@@ -10,12 +11,12 @@ class SecondPage extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         brightness: Brightness.dark,
-        primaryColor: Color(0xFF1E1E1E),
+        primaryColor: Color(0xFF1F1D2B),
       ),
       home: Scaffold(
         appBar: AppBar(
           elevation: 0,
-          backgroundColor: Color(0xFF1E1E1E),
+          backgroundColor: Color(0xFF1F1D2B),
           title: const Center(
             child: Text(
               'Podkes',
@@ -36,7 +37,7 @@ class SecondPage extends StatelessWidget {
             ),
           ],
         ),
-        backgroundColor: Color(0xFF1E1E1E),
+        backgroundColor: Color(0xFF1F1D2B),
         body: SafeArea(
           child: SecondBody(),
         ),
