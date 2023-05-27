@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MainPage());
+  runApp(SecondPage());
 }
 
-class MainPage extends StatelessWidget {
+class SecondPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -38,7 +38,7 @@ class MainPage extends StatelessWidget {
         ),
         backgroundColor: Color(0xFF1E1E1E),
         body: SafeArea(
-          child: MainBody(),
+          child: SecondBody(),
         ),
       ),
       debugShowCheckedModeBanner: false,
@@ -46,7 +46,7 @@ class MainPage extends StatelessWidget {
   }
 }
 
-class MainBody extends StatelessWidget {
+class SecondBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
