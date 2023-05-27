@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:music_player/main.dart';
 
 void main() {
   runApp(FirstPage());
@@ -128,7 +129,13 @@ class FirstPageBody extends StatelessWidget {
                 borderRadius: BorderRadius.circular(35.0),
               ),
             ),
-            onPressed: () {},
+            onPressed: () {
+
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SecondPage()),
+              );
+            },
             child: Icon(
               Icons.arrow_forward,
               color: Color(0xFF525298),
