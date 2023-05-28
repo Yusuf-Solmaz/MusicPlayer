@@ -52,10 +52,10 @@ class SecondPage extends StatelessWidget {
 
 class SecondBody extends StatelessWidget {
 
-  var firstSong = Song("Claire Malone","The missing 96 percent of the universe");
-  var secondSong = Song("Abumenyang","How Dolly Parton led me to an epiphany");
-  var thirdSong = Song("TirMcDohl","The missing 96 percent off the universe");
-  var fourthSong = Song("Denny Kulon","Ngobam with Denny Caknan");
+  static var firstSong = Song("Claire Malone","The missing 96 percent of the universe","slow.mp3","images/img.png",0xFFB548C6);
+  var secondSong = Song("Abumenyang","How Dolly Parton led me to an epiphany","belaru.mp3","images/img_1.png",0xFF32A7E2);
+  var thirdSong = Song("TirMcDohl","The missing 96 percent off the universe","tuc.mp3","images/img_3.png",0xFFEC663C);
+  var fourthSong = Song("Denny Kulon","Ngobam with Denny Caknan","under.mp3","images/img_2.png",0xFFFFBF47);
 
   @override
   Widget build(BuildContext context) {
@@ -177,13 +177,21 @@ class SecondBody extends StatelessWidget {
                         onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => MusicPlayer()),
+                            MaterialPageRoute(builder: (context) => MusicPlayer(
+                              singer: firstSong.singer,
+                            songName: firstSong.songName,
+                              image: firstSong.image,
+                              song: firstSong.song,
+                              backgroundColor: firstSong.backgroundColor,
+
+                            )),
+
                           );
                         },
                         child: Column(
                           children: [
                             Container(
-                                color: Color(0xFFB548C6),
+                                color: Color(firstSong.backgroundColor),
                                 child: Image.asset('images/img.png',
                                     fit: BoxFit.cover)),
                             SizedBox(height: 10.0),
@@ -208,12 +216,23 @@ class SecondBody extends StatelessWidget {
                     Expanded(
                       child: GestureDetector(
                         onTap: () {
-                          // İkinci resme tıklandığında yapılacak işlemler
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => MusicPlayer(
+                              singer: secondSong.singer,
+                              songName: secondSong.songName,
+                              image: secondSong.image,
+                              song: secondSong.song,
+                              backgroundColor: secondSong.backgroundColor,
+
+                            )),
+
+                          );
                         },
                         child: Column(
                           children: [
                             Container(
-                                color: Color(0xFF32A7E2),
+                                color: Color(secondSong.backgroundColor),
                                 child: Image.asset('images/img_1.png',
                                     fit: BoxFit.cover)),
                             const SizedBox(height: 10.0),
@@ -245,12 +264,23 @@ class SecondBody extends StatelessWidget {
                     Expanded(
                       child: GestureDetector(
                         onTap: () {
-                          // Üçüncü resme tıklandığında yapılacak işlemler
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => MusicPlayer(
+                              singer: thirdSong.singer,
+                              songName: thirdSong.songName,
+                              image: thirdSong.image,
+                              song: thirdSong.song,
+                              backgroundColor: thirdSong.backgroundColor,
+
+                            )),
+
+                          );
                         },
                         child: Column(
                           children: [
                             Container(
-                                color: Color(0xFFEC663C),
+                                color: Color(thirdSong.backgroundColor),
                                 child: Image.asset('images/img_3.png',
                                     fit: BoxFit.cover)),
                             SizedBox(height: 10.0),
@@ -275,12 +305,24 @@ class SecondBody extends StatelessWidget {
                     Expanded(
                       child: GestureDetector(
                         onTap: () {
-                          // Dördüncü resme tıklandığında yapılacak işlemler
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => MusicPlayer(
+                              singer: fourthSong.singer,
+                              songName: fourthSong.songName,
+                              image: fourthSong.image,
+                              song: fourthSong.song,
+                              backgroundColor: fourthSong.backgroundColor,
+
+
+                            )),
+
+                          );
                         },
                         child: Column(
                           children: [
                             Container(
-                                color: Color(0xFFFFBF47),
+                                color: Color(fourthSong.backgroundColor),
                                 child: Image.asset('images/img_2.png',
                                     fit: BoxFit.cover)),
                             SizedBox(height: 10.0),

@@ -1,8 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:music_player/main.dart';
 
 class MusicPlayer extends StatelessWidget {
+
+  String singer;
+  String song;
+  String songName;
+  String image;
+  int backgroundColor;
+
+  MusicPlayer({required this.singer,required this.songName,required this.image,required this.song, required this.backgroundColor});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -31,12 +41,24 @@ class MusicPlayer extends StatelessWidget {
               Icons.keyboard_arrow_left,
               size: 40,
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SecondPage()),
+
+              );
+
+            },
           ),
         ),
         backgroundColor: Color(0xFF1F1D2B),
         body: SafeArea(
-          child: MusicPlayerBody(),
+          child: MusicPlayerBody(singer: singer,
+            songName: songName,
+            image: image,
+          song:song,
+          backgroundColor: backgroundColor,
+          ),
         ),
       ),
       debugShowCheckedModeBanner: false,
@@ -45,6 +67,22 @@ class MusicPlayer extends StatelessWidget {
 }
 
 class MusicPlayerBody extends StatefulWidget {
+
+  final String singer;
+  final String songName;
+  final String image;
+  final String song;
+  final int backgroundColor;
+
+  MusicPlayerBody({
+    required this.singer,
+    required this.songName,
+    required this.image,
+    required this.song,
+    required this.backgroundColor
+  });
+
+
   @override
   State<MusicPlayerBody> createState() => _MusicPlayerBodyState();
 }
@@ -95,8 +133,8 @@ class _MusicPlayerBodyState extends State<MusicPlayerBody> {
               margin: EdgeInsets.only(top: 50),
               width: 297,
               height: 280,
-              color: Color(0xFFB548C6),
-              child: Image.asset('images/img.png', fit: BoxFit.cover)),
+              color: Color(widget.backgroundColor),
+              child: Image.asset(widget.image, fit: BoxFit.cover)),
         ),
         Container(
           margin: EdgeInsets.only(top: 20),
@@ -106,14 +144,14 @@ class _MusicPlayerBodyState extends State<MusicPlayerBody> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "The missing 69 percent of the universe",
+                widget.songName,
                 style: GoogleFonts.inter(
                     fontSize: 20, fontWeight: FontWeight.bold),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 15.0),
                 child: Text(
-                  "Claire Malone",
+                  widget.singer,
                   style: GoogleFonts.inter(
                       fontSize: 14, fontWeight: FontWeight.w400),
                 ),
@@ -173,7 +211,7 @@ class _MusicPlayerBodyState extends State<MusicPlayerBody> {
                       await audioPlayer.pause();
                     }
                       else{
-                        await audioPlayer.play(AssetSource('slow.mp3'));
+                        await audioPlayer.play(AssetSource(widget.song));
                     }
                     },
                   ),
