@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:audioplayers/audioplayers.dart';
+
 
 class MusicPlayer extends StatelessWidget {
   @override
@@ -44,7 +46,7 @@ class MusicPlayer extends StatelessWidget {
 }
 
 class MusicPlayerBody extends StatelessWidget {
-  const MusicPlayerBody({Key? key}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
@@ -101,7 +103,8 @@ class MusicPlayerBody extends StatelessWidget {
               Expanded(
                 child: IconButton(
                   onPressed: () {
-                    // Şarkıyı oynatma işlemleri
+
+
                   },
                   icon: Icon(
                     Icons.play_circle,
