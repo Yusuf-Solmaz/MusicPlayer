@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:audioplayers/audioplayers.dart';
 
-
 class MusicPlayer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -45,11 +44,49 @@ class MusicPlayer extends StatelessWidget {
   }
 }
 
-class MusicPlayerBody extends StatelessWidget {
+class MusicPlayerBody extends StatefulWidget {
+  @override
+  State<MusicPlayerBody> createState() => _MusicPlayerBodyState();
+}
+
+class _MusicPlayerBodyState extends State<MusicPlayerBody> {
+  final audioPlayer = AudioPlayer();
+  bool isPlaying = false;
+  Duration duration = Duration.zero;
+  Duration position = Duration.zero;
 
 
   @override
+  void initState() {
+    super.initState();
+    audioPlayer.onPlayerStateChanged.listen((event) { 
+      setState(() {
+        isPlaying = event == PlayerState.playing;
+      });
+    });
+    
+    audioPlayer.onDurationChanged.listen((newDuration) {
+      setState(() {
+        duration=newDuration;
+      });
+    });
+
+    audioPlayer.onPositionChanged.listen((newPosition) {
+      setState(() {
+        position = newPosition;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    audioPlayer.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
+
     return Column(
       children: [
         Center(
@@ -62,7 +99,7 @@ class MusicPlayerBody extends StatelessWidget {
               child: Image.asset('images/img.png', fit: BoxFit.cover)),
         ),
         Container(
-          margin: EdgeInsets.only(top:20),
+          margin: EdgeInsets.only(top: 20),
           width: 295,
           height: 90,
           child: Column(
@@ -70,20 +107,37 @@ class MusicPlayerBody extends StatelessWidget {
             children: [
               Text(
                 "The missing 69 percent of the universe",
-                style: GoogleFonts.inter(fontSize: 20, fontWeight: FontWeight.bold),
+                style: GoogleFonts.inter(
+                    fontSize: 20, fontWeight: FontWeight.bold),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 15.0),
                 child: Text(
                   "Claire Malone",
-                  style: GoogleFonts.inter(fontSize: 14, fontWeight: FontWeight.w400),
+                  style: GoogleFonts.inter(
+                      fontSize: 14, fontWeight: FontWeight.w400),
                 ),
               )
             ],
           ),
         ),
+        Slider(
+            min: 0,
+            max: duration.inSeconds.toDouble(),
+            value: position.inSeconds.toDouble(),
+            onChanged: (value) async {}),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(formatTime(position)),
+              Text(formatTime(duration))
+            ],
+          ),
+        ),
         Container(
-          margin: EdgeInsets.only(top:150),
+          margin: EdgeInsets.only(top: 100),
           width: 160,
           height: 56,
           child: Row(
@@ -102,16 +156,20 @@ class MusicPlayerBody extends StatelessWidget {
               ),
               Expanded(
                 child: IconButton(
-                  onPressed: () {
+                  icon: Icon(isPlaying ? Icons.pause : Icons.play_circle),
+                    iconSize: 50,
+                    onPressed: () async {
 
-
-                  },
-                  icon: Icon(
-                    Icons.play_circle,
-                    size: 40,
+                    if(isPlaying){
+                      await audioPlayer.pause();
+                    }
+                      else{
+                        await audioPlayer.play(AssetSource('slow.mp3'));
+                    }
+                    },
                   ),
                 ),
-              ),
+
               Expanded(
                 child: IconButton(
                   onPressed: () {
@@ -130,19 +188,18 @@ class MusicPlayerBody extends StatelessWidget {
     );
   }
 }
-/*child: ElevatedButton(
 
-            style: ElevatedButton.styleFrom(
-              primary: Colors.transparent,
-              elevation: 0,
-              shadowColor: Colors.transparent,
-              backgroundColor: Color(0xFF1F1D2B),
-              foregroundColor: Colors.green,
-              padding: EdgeInsets.all(12),
+String formatTime(Duration duration){
+  String twoDigits(int n) => n.toString().padLeft(2,"0");
+  final hours = twoDigits(duration.inHours);
+  final minutes = twoDigits(duration.inMinutes.remainder(60));
+  final seconds = twoDigits(duration.inSeconds.remainder(60));
 
-                ),
-            onPressed: (){    },
-            child: Icon(
-               Icons.play_circle,
-            size: 50,
-              color: Colors.white,*/
+  return [
+    if (duration.inHours > 0) hours,
+    minutes,
+    seconds
+  ].join(":");
+}
+
+
