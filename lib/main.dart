@@ -48,10 +48,10 @@ class SecondPage extends StatelessWidget {
 
 class SecondBody extends StatelessWidget {
 
-  static var firstSong = Song("Claire Malone","The missing 96 percent of the universe","slow.mp3","images/img.png",0xFFB548C6);
-  var secondSong = Song("Abumenyang","How Dolly Parton led me to an epiphany","belaru.mp3","images/img_1.png",0xFF32A7E2);
-  var thirdSong = Song("TirMcDohl","The missing 96 percent off the universe","tuc.mp3","images/img_3.png",0xFFEC663C);
-  var fourthSong = Song("Denny Kulon","Ngobam with Denny Caknan","under.mp3","images/img_2.png",0xFFFFBF47);
+  static var firstSong = Song("Claire Malone","The missing 96 percent of the universe","slow.mp3","images/claire.png",0xFFB548C6);
+  var secondSong = Song("Abumenyang","How Dolly Parton led me to an epiphany","belaru.mp3","images/abumenyang.png",0xFF32A7E2);
+  var thirdSong = Song("TirMcDohl","The missing 96 percent off the universe","tuc.mp3","images/tirmc.png",0xFFEC663C);
+  var fourthSong = Song("Denny Kulon","Ngobam with Denny Caknan","under.mp3","images/denny.png",0xFFFFBF47);
 
   @override
   Widget build(BuildContext context) {
@@ -188,7 +188,7 @@ class SecondBody extends StatelessWidget {
                           children: [
                             Container(
                                 color: Color(firstSong.backgroundColor),
-                                child: Image.asset('images/img.png',
+                                child: Image.asset('images/claire.png',
                                     fit: BoxFit.cover)),
                             SizedBox(height: 10.0),
                             Align(
@@ -229,7 +229,7 @@ class SecondBody extends StatelessWidget {
                           children: [
                             Container(
                                 color: Color(secondSong.backgroundColor),
-                                child: Image.asset('images/img_1.png',
+                                child: Image.asset('images/abumenyang.png',
                                     fit: BoxFit.cover)),
                             const SizedBox(height: 10.0),
                             Align(
@@ -277,7 +277,7 @@ class SecondBody extends StatelessWidget {
                           children: [
                             Container(
                                 color: Color(thirdSong.backgroundColor),
-                                child: Image.asset('images/img_3.png',
+                                child: Image.asset('images/tirmc.png',
                                     fit: BoxFit.cover)),
                             SizedBox(height: 10.0),
                             Align(
@@ -319,7 +319,7 @@ class SecondBody extends StatelessWidget {
                           children: [
                             Container(
                                 color: Color(fourthSong.backgroundColor),
-                                child: Image.asset('images/img_2.png',
+                                child: Image.asset('images/denny.png',
                                     fit: BoxFit.cover)),
                             SizedBox(height: 10.0),
                             Align(
