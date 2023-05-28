@@ -7,7 +7,7 @@
 ![musicPlayer](https://github.com/Yusuf-Solmaz/MusicPlayer/assets/83172478/421d7276-6011-4546-993e-8f5105bbf10a)
 
 
-Screen Examples:
+# Screen Examples:
 
  ## Main Screen
  
