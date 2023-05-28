@@ -121,11 +121,20 @@ class _MusicPlayerBodyState extends State<MusicPlayerBody> {
             ],
           ),
         ),
-        Slider(
-            min: 0,
-            max: duration.inSeconds.toDouble(),
-            value: position.inSeconds.toDouble(),
-            onChanged: (value) async {}),
+        Container(
+          margin: EdgeInsets.only(top:35),
+          child: Slider(
+
+              min: 0,
+              max: duration.inSeconds.toDouble(),
+              value: position.inSeconds.toDouble(),
+              activeColor: Colors.blue, // Aktif durumdaki slider rengi
+              inactiveColor: Colors.grey, // Pasif durumdaki slider rengi
+              thumbColor: Colors.blue, // Sliderın üzerindeki başlık rengi
+
+
+              onChanged: (value) async {}),
+        ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10.0),
           child: Row(
@@ -137,7 +146,7 @@ class _MusicPlayerBodyState extends State<MusicPlayerBody> {
           ),
         ),
         Container(
-          margin: EdgeInsets.only(top: 100),
+          margin: EdgeInsets.only(top: 50),
           width: 160,
           height: 56,
           child: Row(
