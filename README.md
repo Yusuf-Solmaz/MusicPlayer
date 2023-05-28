@@ -1,16 +1,24 @@
-# music_player
+# Music Player
 
-Flutter Project
+**Project Purpose: To create a workable music application.**
+**This project was made for Piton Technology.**
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+![musicPlayer](https://github.com/Yusuf-Solmaz/MusicPlayer/assets/83172478/421d7276-6011-4546-993e-8f5105bbf10a)
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Screen Examples:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+ ## Main Screen
+ 
+![main](https://github.com/Yusuf-Solmaz/MusicPlayer/assets/83172478/47ed0d01-d2c0-48b6-a9c5-58e11349f429)
+
+ ## Second Screen
+ 
+ ![second](https://github.com/Yusuf-Solmaz/MusicPlayer/assets/83172478/d709360e-cb7d-402d-bd31-46dbc662a9b2)
+
+## Third Screen
+
+ ![third](https://github.com/Yusuf-Solmaz/MusicPlayer/assets/83172478/a3c41642-ffea-44b0-95a7-bc46ab9cb31a)
+
+ 
