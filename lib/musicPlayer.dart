@@ -45,9 +45,7 @@ class MusicPlayer extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => SecondPage()),
-
               );
-
             },
           ),
         ),
@@ -166,9 +164,9 @@ class _MusicPlayerBodyState extends State<MusicPlayerBody> {
               min: 0,
               max: duration.inSeconds.toDouble(),
               value: position.inSeconds.toDouble(),
-              activeColor: Colors.blue, // Aktif durumdaki slider rengi
-              inactiveColor: Colors.grey, // Pasif durumdaki slider rengi
-              thumbColor: Colors.blue, // Sliderın üzerindeki başlık rengi
+              activeColor: Colors.blue,
+              inactiveColor: Colors.grey,
+              thumbColor: Colors.blue,
 
 
               onChanged: (value) async {}),

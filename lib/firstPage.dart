@@ -44,7 +44,7 @@ class FirstPageBody extends StatelessWidget {
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(90.00),
                   topRight: Radius.circular(
-                      90.00)), // Köşeleri kavisleştirmek için kullanılır
+                      90.00)),
               image: DecorationImage(
                 image: AssetImage("images/img_4.png"),
                 fit: BoxFit.cover,

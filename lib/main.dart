@@ -3,10 +3,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:music_player/Data/song.dart';
 import 'package:music_player/musicPlayer.dart';
 
-/*
-void main() {
-  runApp(SecondPage());
-}*/
 
 class SecondPage extends StatelessWidget {
   @override
@@ -315,7 +311,7 @@ class SecondBody extends StatelessWidget {
                               backgroundColor: fourthSong.backgroundColor,
 
 
-                            )),
+                            ),),
 
                           );
                         },
