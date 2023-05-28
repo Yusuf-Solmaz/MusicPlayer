@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:music_player/Data/song.dart';
+import 'package:music_player/musicPlayer.dart';
 
 /*
 void main() {
@@ -48,6 +51,12 @@ class SecondPage extends StatelessWidget {
 }
 
 class SecondBody extends StatelessWidget {
+
+  var firstSong = Song("Claire Malone","The missing 96 percent of the universe");
+  var secondSong = Song("Abumenyang","How Dolly Parton led me to an epiphany");
+  var thirdSong = Song("TirMcDohl","The missing 96 percent off the universe");
+  var fourthSong = Song("Denny Kulon","Ngobam with Denny Caknan");
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -166,7 +175,10 @@ class SecondBody extends StatelessWidget {
                     Expanded(
                       child: GestureDetector(
                         onTap: () {
-                          // İlk resme tıklandığında yapılacak işlemler
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => MusicPlayer()),
+                          );
                         },
                         child: Column(
                           children: [
@@ -178,14 +190,15 @@ class SecondBody extends StatelessWidget {
                             Align(
                               alignment: Alignment.centerLeft,
                               child: Text(
-                                'Info',
-                                style: TextStyle(
-                                    fontSize: 20, fontWeight: FontWeight.bold),
+                                firstSong.songName,
+                                style: GoogleFonts.inter(
+                                    fontSize: 13, fontWeight: FontWeight.bold),
                               ),
                             ),
                             Align(
                               alignment: Alignment.centerLeft,
-                              child: Text("Singer"),
+                              child: Text(firstSong.singer,style: GoogleFonts.inter(
+                                  fontSize: 10, fontWeight: FontWeight.w400),),
                             ),
                           ],
                         ),
@@ -204,17 +217,18 @@ class SecondBody extends StatelessWidget {
                                 child: Image.asset('images/img_1.png',
                                     fit: BoxFit.cover)),
                             const SizedBox(height: 10.0),
-                            const Align(
+                            Align(
                               alignment: Alignment.centerLeft,
                               child: Text(
-                                'Info',
-                                style: TextStyle(
-                                    fontSize: 20, fontWeight: FontWeight.bold),
+                                secondSong.songName,
+                                style: GoogleFonts.inter(
+                                    fontSize: 13, fontWeight: FontWeight.bold),
                               ),
                             ),
-                            const Align(
+                            Align(
                               alignment: Alignment.centerLeft,
-                              child: Text("Singer"),
+                              child: Text(secondSong.singer,style: GoogleFonts.inter(
+                                  fontSize: 10, fontWeight: FontWeight.w400),),
                             ),
                           ],
                         ),
@@ -243,14 +257,15 @@ class SecondBody extends StatelessWidget {
                             Align(
                               alignment: Alignment.centerLeft,
                               child: Text(
-                                'Info',
-                                style: TextStyle(
-                                    fontSize: 20, fontWeight: FontWeight.bold),
+                                thirdSong.songName,
+                                style: GoogleFonts.inter(
+                                    fontSize: 13, fontWeight: FontWeight.bold),
                               ),
                             ),
                             Align(
                               alignment: Alignment.centerLeft,
-                              child: Text("Singer"),
+                              child: Text(thirdSong.singer,style: GoogleFonts.inter(
+                                  fontSize: 10, fontWeight: FontWeight.w400),),
                             ),
                           ],
                         ),
@@ -272,14 +287,15 @@ class SecondBody extends StatelessWidget {
                             Align(
                               alignment: Alignment.centerLeft,
                               child: Text(
-                                'Info',
+                                fourthSong.songName,
                                 style: TextStyle(
-                                    fontSize: 20, fontWeight: FontWeight.bold),
+                                    fontSize: 13, fontWeight: FontWeight.bold),
                               ),
                             ),
                             Align(
                               alignment: Alignment.centerLeft,
-                              child: Text("Singer"),
+                              child: Text(fourthSong.singer,style: GoogleFonts.inter(
+                                  fontSize: 10, fontWeight: FontWeight.w400),),
                             ),
                           ],
                         ),
@@ -293,6 +309,7 @@ class SecondBody extends StatelessWidget {
         ),
         Expanded(
           child: Container(
+            margin: EdgeInsets.only(top:20),
             decoration: const BoxDecoration(
               color: Color(0xFF252836),
               borderRadius: BorderRadius.only(
@@ -302,7 +319,7 @@ class SecondBody extends StatelessWidget {
             ),
             child: Column(
               children: [
-                const SizedBox(height: 20.0),
+                //const SizedBox(height: 20.0),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
